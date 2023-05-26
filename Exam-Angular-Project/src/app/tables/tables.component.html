@@ -1,0 +1,190 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Gestion des Pilotes</h4>
+                        <!-- <p class="category">Here is a subtitle for this table</p> -->
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                          <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let row of tableData1.dataRows">
+                                    <ng-container *ngFor="let cell of row; let lastIndex = last">
+                                        <td >{{ cell }}</td>
+                                    </ng-container>
+                                    <td>
+                                        <!-- Cell after the last cell -->
+                                       <button (click)="deletePilote(row)"> <img src="assets/img/delete.png" alt="Image" width="40" height="40" /></button> &nbsp;
+                                                                               <button type="button" data-toggle="modal" data-target="#updateModal" (click)="getRow(row)"><img src="assets/img/updated.png" alt="Image" width="40" height="40" /></button>
+
+                                    </td>
+                                </tr>
+                                </tbody>
+                          </table>
+
+                    </div> 
+                
+                
+              
+    </div>  
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+        Ajouter un pilote
+    </button>
+</div>
+<!-- Modal HTML -->
+<div class="modal" id="myModal" tabindex="-1" role="dialog" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Pilote</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+<div class="form-group">
+    <div class="content">
+        <form (submit)="addAviateur()">
+            <div class="row">
+                <div class="col-md-5"> 
+                    <div class="form-group">
+                        <label>CIN</label>
+                        <input type="text" class="form-control" placeholder="Tap Cin" [(ngModel)]="cin">
+                    </div> 
+                    <div class="form-group">
+                        <label>Nom</label>
+                        <input type="text" class="form-control" placeholder="Message to send" [(ngModel)]="nom">
+                    </div> 
+                    <div class="form-group">
+                        <label>Prénom</label>
+                        <input type="text" class="form-control" placeholder="Message to send" [(ngModel)]="prenom">
+                    </div> 
+                    <div class="form-group">
+                        <label>Numéro téléphone</label>
+                        <input type="text" class="form-control" placeholder="Message to send" [(ngModel)]="phone">
+                    </div>  
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="text" class="form-control" placeholder="Message to send" [(ngModel)]="age">
+                    </div>
+                    <div class="form-group">
+                        <label>Nationalité</label>
+                        <input type="text" class="form-control" placeholder="Message to send" [(ngModel)]="nationalite">
+                    </div>
+                <div class="form-group inline-block">
+                    <label>Taille</label>
+                    <input type="text" class="form-control" placeholder="Message to send" [(ngModel)]="taille">
+                </div>
+                    <div class="form-group"> 
+                                                <label>Rôle</label>
+
+                                                                    <select name="Role" [(ngModel)]="role">
+                                                                       
+                                                                        <option value="0">Pilote</option>
+                                                                        <option value="1">Copilote</option>
+                                                                      
+                                                    
+                                                                    </select>
+                                                    
+                                                                </div> 
+                    
+                  
+                </div>
+            </div> 
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>          
+  </div>
+           
+        </div>
+    </div>
+</div>
+
+
+<!-- update modal --> 
+<div class="modal" id="updateModal" tabindex="-1" role="dialog" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Update Pilote </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="content">
+                        <form (submit)="updatePilote()">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group inline">
+                                        <label>CIN</label>
+                                        <input type="text" class="form-control" placeholder="Tap Cin" [(ngModel)]="cin" name="cin" 
+                                           >
+                                    </div>
+                                    <div class="form-group inline">
+                                        <label>Nom</label>
+                                        <input type="text" class="form-control" placeholder="Tap firstname"
+                                            [(ngModel)]="nom" name="nom">
+                                    </div>
+                                    <div class="form-group inline">
+                                        <label>Prénom</label>
+                                        <input type="text" class="form-control" placeholder="Tap lastname"
+                                            [(ngModel)]="prenom" name="prenom">
+                                    </div>
+                                    <div class="form-group inline">
+                                        <label>Numéro téléphone</label>
+                                        <input type="text" class="form-control" placeholder="phone number"
+                                            [(ngModel)]="phone" name="phone">
+                                    </div>
+                                    <div class="form-group inline">
+                                        <label>Age</label>
+                                        <input type="text" class="form-control" placeholder="Age"
+                                            [(ngModel)]="age" name="Age">
+                                    </div>
+                                    <div class="form-group inline">
+                                        <label>Nationalité</label>
+                                        <input type="text" class="form-control" placeholder="Nationality"
+                                            [(ngModel)]="nationalite" name="nationalite">
+                                    </div>
+                                    <div class="form-group inline">
+                                        <label>Taille</label>
+                                        <input type="text" class="form-control" placeholder="Message to send"
+                                            [(ngModel)]="taille" name="taille">
+                                    </div>
+                                    <div class="form-group"> 
+                                        <label for="sel1">Select role:</label>
+                                        <select class="form-control"  name="role" [(ngModel)]="role" id="sel1">
+                                            <option value="0">Pilote</option>
+                                            <option value="1">Copilote</option>
+                                        </select>
+                                       
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

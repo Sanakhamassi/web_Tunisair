@@ -1,0 +1,99 @@
+<div class="main-content" > 
+    <div class="container-fluid"> 
+    <div class="card">
+        <div class="header">
+            <h4 class="title">Notifications with Sms </h4>
+        </div>
+        <div class="content">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <div class="content">
+                                <form  (submit)="sendSms()">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <!-- <div class="form-group">
+                                                <select name="Groups">
+                                                    <option value="">--Please choose an option--</option>
+                                                    <option value="dog">1 ING 1</option>
+                                                    <option value="cat">2 ING 1</option>
+                                                    <option value="hamster">3 Ing 1</option>
+                                
+                                                </select>
+                                
+                                            </div>  -->
+                                            <div class="form-group">
+                                                <label>Phone number</label>
+                                                <input type="text" class="form-control" placeholder="Message to send" [(ngModel)]="phoneNum">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Message body</label>
+                                                <input type="text" class="form-control" placeholder="Message to send" [(ngModel)]="msgBody">
+                                            </div>
+                                            <div class="content">
+                                                <div class="places-buttons">
+                                                    <div class="row">
+                                                       
+                                                        <div class="col-md-6">
+                                                            <button submit class="btn btn-default btn-block">Send SMS</button>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+         </div>
+        <p></p>
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Notifications with Email</h4>
+            </div> 
+            <div class="content">
+                                <form (submit)="sendMail()">
+                    <div class="row">
+                        <div class="col-md-5"> 
+                            <!-- <div class="form-group">
+<select name="Groups">
+    <option value="">--Please choose an option--</option>
+    <option value="dog">1 ING 1</option>
+    <option value="cat">2 ING 1</option>
+    <option value="hamster">3 Ing 1</option>
+  
+</select>
+
+                            </div> -->  
+                            <div class="form-group">
+                                <label>Object </label>
+                                <input type="text" class="form-control" placeholder="Mail Object" [(ngModel)]="mailObject">
+                            </div>
+                            <div class="form-group">
+                                <label>Email </label>
+                                <input type="text" class="form-control" placeholder="Tap the email"  [(ngModel)]="mail">
+                            </div>
+                            <div class="form-group"> 
+                                <label>Message body</label>
+                                <input type="text" class="form-control" placeholder="Message to send" [(ngModel)]="mailmsgBody">
+                            </div>   
+                            <div> 
+                                                                <label>Attach a file</label>
+
+                                <input type="file" id="myFile" name="filename" (change)="onFileSelected($event)">
+                            </div>
+                            <div class="col-md-3 col-md-offset-2 ">
+                                <button submit class="btn btn-default btn-block" >Send Email</button>
+                            </div>
+                        </div>
+                       </div>
+                       </form>
+                       </div>  
+        </div> 
+    </div>
+    </div>
+                   
+           

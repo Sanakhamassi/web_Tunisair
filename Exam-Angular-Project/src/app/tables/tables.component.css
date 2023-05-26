@@ -1,0 +1,13 @@
+.modal-backdrop {
+    /* bug fix - no overlay */
+    display: none;
+} 
+
+.inline {
+    display: flex;
+    align-items: center;
+}
+
+.inline label {
+    margin-right: 10px;
+}
